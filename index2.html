@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- viewport: hace que se vea bien en móvil. Sin esto, el menú hamburguesa no sirve -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plantilla Prueba Desempeño</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <!-- LAYOUT PRINCIPAL CON GRID: header, 3 columnas, footer -->
+  <div class="layout">
+    
+    <!-- HEADER: Barra superior fija -->
+    <header class="header">
+      <div class="header-izq">
+        <!-- BOTÓN HAMBURGUESA: Solo se ve en móvil -->
+        <button class="btn-menu" id="btnMenu" aria-label="Abrir menú">
+          <span class="hamburguesa"></span> <!-- Las 3 rayas se hacen con CSS -->
+        </button>
+        <h1 class="logo">MiSitio</h1>
+      </div>
+      
+      <!-- NAV DESKTOP: Se oculta en móvil -->
+      <nav class="nav-desktop">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header-der">
+        <!-- BOTÓN PARA ABRIR SIDEBAR DERECHO -->
+        <button class="btn-sidebar" id="btnSidebarDer">Info</button>
+      </div>
+    </header>
+
+    <!-- MENÚ MÓVIL: Overlay que sale desde la izquierda -->
+    <nav class="nav-movil" id="navMovil">
+      <div class="nav-movil-header">
+        <h2>Menú</h2>
+        <button class="btn-cerrar" id="btnCerrarMenu">×</button> <!-- × = símbolo de cerrar -->
+      </div>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    
+    <!-- OVERLAY: Fondo oscuro cuando abres menús -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- SIDEBAR IZQUIERDO: Contenido adicional que se colapsa -->
+    <aside class="sidebar sidebar-izq" id="sidebarIzq">
+      <h3>Categorías</h3>
+      <nav>
+        <ul>
+          <li><a href="#">HTML5</a></li>
+          <li><a href="#">CSS3</a></li>
+          <li><a href="#">Grid</a></li>
+          <li><a href="#">Flexbox</a></li>
+        </ul>
+      </nav>
+      
+      <h3>Últimas noticias</h3>
+      <article class="widget">
+        <h4>Noticia 1</h4>
+        <p>Texto corto de la noticia...</p>
+        <time datetime="2026-04-27">27 Abr 2026</time>
+      </article>
+    </aside>
+
+    <!-- MAIN: Contenido central principal -->
+    <main class="contenido" id="inicio">
+      <section class="hero">
+        <h2>Bienvenido a la plantilla</h2>
+        <p>Esta estructura usa <strong>Grid</strong> para el layout general y <strong>Flexbox</strong> para componentes.</p>
+      </section>
+
+      <section id="servicios">
+        <h2>Servicios</h2>
+        <!-- Grid de cards responsive -->
+        <div class="grid-cards">
+          <article class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Servicio 1">
+            <h3>Servicio 1</h3>
+            <p>Descripción del servicio...</p>
+          </article>
+          <article class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Servicio 2">
+            <h3>Servicio 2</h3>
+            <p>Descripción del servicio...</p>
+          </article>
+          <article class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Servicio 3">
+            <h3>Servicio 3</h3>
+            <p>Descripción del servicio...</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="blog">
+        <h2>Últimos Artículos</h2>
+        <article class="post">
+          <header>
+            <h3>Título del post</h3>
+            <p>Por <address>Jhonatan</address> el <time datetime="2026-04-27">27 Abril</time></p>
+          </header>
+          <figure>
+            <img src="https://via.placeholder.com/800x400" alt="Imagen del post">
+            <figcaption>Descripción de la imagen</figcaption>
+          </figure>
+          <p>Contenido del artículo...</p>
+          <footer>
+            <a href="#">Leer más →</a>
+          </footer>
+        </article>
+      </section>
+
+      <section id="contacto">
+        <h2>Contacto</h2>
+        <form class="form-contacto">
+          <div class="form-grupo">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required>
+          </div>
+          <div class="form-grupo">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+          </div>
+          <div class="form-grupo">
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" rows="4"></textarea>
+          </div>
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- SIDEBAR DERECHO: Widgets, publicidad, info extra -->
+    <aside class="sidebar sidebar-der" id="sidebarDer">
+      <button class="btn-cerrar-sidebar" id="btnCerrarSidebarDer">×</button>
+      <h3>Información adicional</h3>
+      <div class="widget">
+        <h4>Horario</h4>
+        <p>Lun - Vie: 8am - 6pm</p>
+      </div>
+      <div class="widget">
+        <h4>Redes Sociales</h4>
+        <ul class="redes">
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+        </ul>
+      </div>
+      <div class="widget">
+        <h4>iFrame ejemplo</h4>
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18" 
+          width="100%" 
+          height="200" 
+          style="border:0;" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </aside>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>&copy; 2026 Jhonatan. Prueba de desempeño.</p>
+    </footer>
+
+  </div> <!-- Cierre .layout -->
+
+  <!-- JS MÍNIMO para abrir/cerrar menús -->
+  <script>
+    // Elementos
+    const btnMenu = document.getElementById('btnMenu');
+    const navMovil = document.getElementById('navMovil');
+    const btnCerrarMenu = document.getElementById('btnCerrarMenu');
+    const btnSidebarDer = document.getElementById('btnSidebarDer');
+    const sidebarDer = document.getElementById('sidebarDer');
+    const btnCerrarSidebarDer = document.getElementById('btnCerrarSidebarDer');
+    const overlay = document.getElementById('overlay');
+
+    // Abrir menú móvil
+    btnMenu.addEventListener('click', () => {
+      navMovil.classList.add('activo'); // Agrega clase .activo
+      overlay.classList.add('activo');
+      document.body.style.overflow = 'hidden'; // Bloquea scroll del body
+    });
+
+    // Cerrar menú móvil
+    function cerrarMenu() {
+      navMovil.classList.remove('activo');
+      overlay.classList.remove('activo');
+      document.body.style.overflow = '';
+    }
+    btnCerrarMenu.addEventListener('click', cerrarMenu);
+    overlay.addEventListener('click', cerrarMenu);
+
+    // Abrir sidebar derecho
+    btnSidebarDer.addEventListener('click', () => {
+      sidebarDer.classList.add('activo');
+      overlay.classList.add('activo');
+    });
+
+    // Cerrar sidebar derecho
+    btnCerrarSidebarDer.addEventListener('click', () => {
+      sidebarDer.classList.remove('activo');
+      overlay.classList.remove('activo');
+    });
+  </script>
+</body>
+</html>

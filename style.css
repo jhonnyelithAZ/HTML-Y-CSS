@@ -1,0 +1,384 @@
+/* ===== RESET Y VARIABLES ===== */
+* { /* Selector universal: aplica a todo */
+  box-sizing: border-box; /* Padding y border no aumentan el ancho */
+  margin: 0;
+  padding: 0;
+}
+
+:root { /* Variables CSS globales */
+  --color-primario: #8B4513;
+  --color-secundario: #FFD700;
+  --color-texto: #2A1F15;
+  --color-fondo: #FFF5E1;
+  --fuente-principal: 'Arial', sans-serif;
+  --sombra: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+html {
+  font-size: 16px; /* Base para usar rem */
+  scroll-behavior: smooth; /* Scroll suave en anclas */
+}
+
+body {
+  font-family: var(--fuente-principal); /* Usa variable */
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  line-height: 1.6; /* Altura de línea para legibilidad */
+}
+
+/* ===== HEADER Y MENÚ TOGGLE ===== */
+.header-principal {
+  background: var(--color-primario);
+  color: white;
+  padding: 1rem;
+  display: flex; /* Flexbox para alinear */
+  justify-content: space-between; /* Logo izq, menú der */
+  align-items: center;
+  position: sticky; /* Se queda pegado arriba al hacer scroll */
+  top: 0;
+  z-index: 1000; /* Se pone encima de todo */
+  box-shadow: var(--sombra);
+}
+
+.logo img {
+  border-radius: 50%; /* Imagen redonda */
+  display: block; /* Quita espacio fantasma debajo */
+}
+
+/* Menú Toggle con Checkbox Hack - Sin JS */
+.menu-toggle-input {
+  display: none; /* Ocultamos el checkbox */
+}
+
+.menu-toggle-label {
+  display: none; /* Oculto en desktop */
+  flex-direction: column; /* Rayas una debajo de otra */
+  cursor: pointer;
+  gap: 5px; /* Espacio entre rayas */
+}
+
+.barra { /* Cada raya del hamburguesa */
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease; /* Animación suave */
+}
+
+/* Animación del toggle a X */
+.menu-toggle-input:checked + .menu-toggle-label .barra:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px); /* Rota primera raya */
+}
+
+.menu-toggle-input:checked + .menu-toggle-label .barra:nth-child(2) {
+  opacity: 0; /* Oculta la del medio */
+}
+
+.menu-toggle-input:checked + .menu-toggle-label .barra:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px); /* Rota tercera raya */
+}
+
+.menu-lista {
+  display: flex; /* Menú horizontal en desktop */
+  list-style: none; /* Quita viñetas */
+  gap: 2rem; /* Espacio entre items */
+}
+
+.menu-lista a {
+  color: white;
+  text-decoration: none; /* Quita subrayado */
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu-lista a:hover { /* :hover=cuando pasas el mouse */
+  color: var(--color-secundario);
+}
+
+/* ===== MAIN Y SECCIONES ===== */
+main {
+  max-width: 1200px; /* Ancho máximo */
+  margin: 0 auto; /* Centrado */
+  padding: 2rem 1rem;
+}
+
+section {
+  margin-bottom: 3rem; /* Espacio entre secciones */
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: var(--sombra);
+}
+
+h1, h2, h3, h4, h5, h6 { /* Todos los títulos */
+  margin-bottom: 1rem;
+  color: var(--color-primario);
+}
+
+h1 { font-size: 2.5rem; } /* rem=relativo al html font-size */
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* ===== ARTICLE Y FIGURE ===== */
+article {
+  border: 2px solid var(--color-primario);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 4px;
+}
+
+figure {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+figure img {
+  max-width: 100%; /* Imagen responsive */
+  height: auto; /* Mantiene proporción */
+}
+
+figcaption {
+  font-style: italic;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+/* ===== ASIDE ===== */
+aside {
+  background: #f0f0f0;
+  padding: 1rem;
+  border-left: 4px solid var(--color-secundario);
+  margin: 1rem 0;
+}
+
+/* ===== LISTAS ===== */
+ul, ol, dl {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+dt {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+dd {
+  margin-left: 1rem;
+  color: #555;
+}
+
+/* ===== TABLAS ===== */
+table {
+  width: 100%;
+  border-collapse: collapse; /* Bordes unidos */
+  margin: 1rem 0;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+th {
+  background-color: var(--color-primario);
+  color: white;
+}
+
+tr:nth-child(even) { /* :nth-child=filas pares */
+  background-color: #f9f9f9; /* Zebra stripes */
+}
+
+tr:hover { /* Resalta fila al pasar mouse */
+  background-color: #f0f0f0;
+}
+
+/* ===== FORMULARIOS ===== */
+form {
+  max-width: 600px;
+}
+
+fieldset {
+  border: 2px solid var(--color-primario);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 0.5rem;
+  color: var(--color-primario);
+}
+
+label {
+  display: block; /* Label arriba del input */
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+input, select, textarea, button {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit; /* Hereda fuente del body */
+}
+
+input:focus, select:focus, textarea:focus { /* :focus=cuando haces click */
+  outline: none; /* Quita borde azul por defecto */
+  border-color: var(--color-primario);
+  box-shadow: 0 0 5px rgba(139, 69, 19, 0.5);
+}
+
+input[type="radio"], input[type="checkbox"] { /* []=selector de atributo */
+  width: auto; /* Radio y checkbox no al 100% */
+  margin-right: 0.5rem;
+}
+
+button {
+  background-color: var(--color-primario);
+  color: white;
+  font-weight: bold;
+  cursor: pointer; /* Manito al pasar mouse */
+  margin-top: 1rem;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #6B4423;
+}
+
+button:active { /* :active=mientras haces click */
+  transform: scale(0.98); /* Efecto de presionar */
+}
+
+/* ===== MULTIMEDIA ===== */
+iframe, video, audio, canvas, svg {
+  max-width: 100%; /* Responsive */
+  display: block;
+  margin: 1rem 0;
+}
+
+/* ===== DETAILS Y SUMMARY ===== */
+details {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none; /* No se selecciona el texto */
+}
+
+summary:hover {
+  color: var(--color-primario);
+}
+
+/* ===== PROGRESS Y METER ===== */
+progress, meter {
+  width: 100%;
+  height: 2rem;
+  margin: 0.5rem 0;
+}
+
+/* ===== FOOTER ===== */
+.footer-principal {
+  background: var(--color-texto);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+.footer-principal a {
+  color: var(--color-secundario);
+}
+
+/* ===== RESPONSIVE - MÓVIL 900px ABAJO ===== */
+@media (max-width: 900px) {
+  /* Menú toggle aparece en móvil */
+  .menu-toggle-label {
+    display: flex;
+  }
+  
+  /* Oculta menú por defecto */
+  .menu-lista {
+    display: none;
+    position: absolute;
+    top: 100%; /* Debajo del header */
+    left: 0;
+    width: 100%;
+    background: var(--color-primario);
+    flex-direction: column; /* Menú vertical */
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  /* Muestra menú cuando checkbox está checked */
+  .menu-toggle-input:checked ~ .menu-lista { /* ~=hermanos */
+    display: flex;
+  }
+  
+  /* Textos más pequeños en móvil */
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  
+  /* Secciones con menos padding */
+  section {
+    padding: 1rem;
+  }
+  
+  /* Tabla con scroll horizontal */
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+/* ===== IPHONE 12 PRO: 390px ===== */
+@media (max-width: 390px) {
+  html {
+    font-size: 14px; /* Texto base más chico */
+  }
+  
+  main {
+    padding: 1rem 0.5rem;
+  }
+}
+
+/* ===== PSEUDO-ELEMENTOS Y CLASES ===== */
+.tag::before { /* ::before=inserta contenido antes */
+  content: "#"; /* Agrega # antes de cada tag */
+}
+
+.tag::after { /* ::after=inserta contenido después */
+  content: "";
+}
+
+p::first-letter { /* Primera letra del párrafo */
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+p::first-line { /* Primera línea del párrafo */
+  font-weight: 500;
+}
+
+::selection { /* Texto seleccionado con el mouse */
+  background: var(--color-secundario);
+  color: var(--color-texto);
+}
+
+
+
+
+

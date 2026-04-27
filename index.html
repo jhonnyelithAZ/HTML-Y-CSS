@@ -1,0 +1,336 @@
+<!DOCTYPE html> <!-- Declaración HTML5 -->
+<html lang="es"> <!-- lang=idioma para accesibilidad y SEO -->
+
+<head>
+  <!-- Metadatos básicos -->
+  <meta charset="UTF-8"> <!-- Codificación para tildes, ñ, emojis -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive en móviles -->
+  <meta name="description" content="Plantilla con todas las etiquetas HTML5"> <!-- SEO -->
+  <meta name="author" content="Jhonatan">
+  <title>Plantilla Completa HTML5 + CSS3</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="estilos.css">
+  
+  <!-- CSS interno de ejemplo -->
+  <style>
+    /* Esto va en el head, pero mejor usar archivo externo */
+    html { scroll-behavior: smooth; } /* Scroll suave para anclas */
+  </style>
+</head>
+
+<body>
+  <!-- HEADER: Cabecera principal del sitio -->
+  <header class="header-principal">
+    <div class="logo">
+      <img src="https://via.placeholder.com/50" alt="Logo de la empresa"> <!-- alt=texto si no carga -->
+    </div>
+    
+    <!-- NAV: Menú de navegación principal -->
+    <nav class="nav-principal" id="nav">
+      <!-- Menú Toggle para móvil -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle-input"> <!-- Checkbox hack -->
+      <label for="menu-toggle" class="menu-toggle-label">
+        <span class="barra"></span> <!-- Las 3 rayas del hamburguesa -->
+        <span class="barra"></span>
+        <span class="barra"></span>
+      </label>
+      
+      <ul class="menu-lista"> <!-- Lista desordenada para menú -->
+        <li><a href="#inicio">Inicio</a></li> <!-- a=enlace, href=destino -->
+        <li><a href="#articulos">Artículos</a></li>
+        <li><a href="#multimedia">Multimedia</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN: Contenido principal, solo 1 por página -->
+  <main id="inicio">
+    
+    <!-- SECTION: Agrupa contenido temático -->
+    <section class="hero">
+      <h1>H1: Título principal de la página</h1> <!-- Solo 1 h1 por página -->
+      <h2>H2: Subtítulo importante</h2>
+      <h3>H3: Subtítulo de nivel 3</h3>
+      <h4>H4: Nivel 4</h4>
+      <h5>H5: Nivel 5</h5>
+      <h6>H6: Nivel 6, el menos importante</h6>
+      
+      <p> <!-- p=párrafo -->
+        Este es un párrafo con <strong>texto importante</strong>, <!-- strong=negrita semántica -->
+        <em>texto con énfasis</em>, <!-- em=cursiva semántica -->
+        <mark>texto resaltado</mark>, <!-- mark=resaltado amarillo -->
+        <small>texto pequeño</small>, <!-- small=letra chica -->
+        <del>texto eliminado</del>, <!-- del=tachado -->
+        <ins>texto insertado</ins>, <!-- ins=subrayado -->
+        <sub>subíndice</sub> y <sup>superíndice</sup>. <!-- sub/sup= H2O, m2 -->
+      </p>
+      
+      <blockquote cite="https://ejemplo.com"> <!-- blockquote=cita larga -->
+        <p>"La web es para todos" - Tim Berners-Lee</p>
+      </blockquote>
+      
+      <q>Esta es una cita corta en línea</q> <!-- q=cita corta con comillas -->
+      
+      <pre><code> <!-- pre=texto preformateado, code=código -->
+function saludar() {
+  console.log("Hola mundo");
+}
+      </code></pre>
+      
+      <hr> <!-- hr=línea horizontal separadora -->
+      
+      <address> <!-- address=info de contacto -->
+        Escrito por <a href="mailto:jhonatan@email.com">Jhonatan</a>.<br>
+        Barranquilla, Colombia
+      </address>
+    </section>
+
+    <!-- ARTICLE: Contenido independiente y reutilizable -->
+    <section id="articulos">
+      <h2>Sección de Artículos</h2>
+      
+      <article class="post"> <!-- article=post de blog, noticia -->
+        <header> <!-- header del artículo -->
+          <h3>Título del Artículo 1</h3>
+          <p>Publicado el <time datetime="2026-04-26">26 de Abril 2026</time></p> <!-- time=fecha/hora -->
+        </header>
+        
+        <figure> <!-- figure=contenedor para imagen con descripción -->
+          <img src="https://via.placeholder.com/600x300" alt="Imagen del artículo">
+          <figcaption>Fig.1 - Descripción de la imagen</figcaption> <!-- figcaption=pie de foto -->
+        </figure>
+        
+        <p>Párrafo del artículo. Aquí va el contenido principal...</p>
+        
+        <!-- Listas -->
+        <h4>Lista desordenada:</h4>
+        <ul> <!-- ul=lista con viñetas -->
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3
+            <ul> <!-- Lista anidada -->
+              <li>Sub-item 3.1</li>
+            </ul>
+          </li>
+        </ul>
+        
+        <h4>Lista ordenada:</h4>
+        <ol> <!-- ol=lista numerada -->
+          <li>Primer paso</li>
+          <li>Segundo paso</li>
+          <li>Tercer paso</li>
+        </ol>
+        
+        <h4>Lista de definiciones:</h4>
+        <dl> <!-- dl=lista de definiciones -->
+          <dt>HTML</dt> <!-- dt=término -->
+          <dd>Lenguaje de marcado</dd> <!-- dd=definición -->
+          <dt>CSS</dt>
+          <dd>Hojas de estilo en cascada</dd>
+        </dl>
+        
+        <footer> <!-- footer del artículo -->
+          <p>Etiquetas: <span class="tag">HTML</span> <span class="tag">CSS</span></p>
+        </footer>
+      </article>
+      
+      <!-- ASIDE: Contenido relacionado pero secundario -->
+      <aside class="sidebar">
+        <h4>Aside: Contenido lateral</h4>
+        <p>Esto es info secundaria, como widgets o publicidad.</p>
+      </aside>
+    </section>
+
+    <!-- SECTION: Multimedia -->
+    <section id="multimedia">
+      <h2>Multimedia y Embebidos</h2>
+      
+      <!-- IFRAME: Insertar otra web o video -->
+      <h3>iFrame con YouTube</h3>
+      <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+        title="Video de YouTube" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+      
+      <!-- VIDEO: Video nativo -->
+      <h3>Etiqueta Video</h3>
+      <video width="400" controls poster="https://via.placeholder.com/400x225"> <!-- controls=botones, poster=miniatura -->
+        <source src="video.mp4" type="video/mp4">
+        <source src="video.webm" type="video/webm">
+        Tu navegador no soporta video. <!-- Fallback -->
+      </video>
+      
+      <!-- AUDIO: Audio nativo -->
+      <h3>Etiqueta Audio</h3>
+      <audio controls>
+        <source src="audio.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+      </audio>
+      
+      <!-- CANVAS: Dibujar con JS -->
+      <h3>Canvas</h3>
+      <canvas id="miCanvas" width="300" height="150">
+        Tu navegador no soporta canvas.
+      </canvas>
+      
+      <!-- SVG: Gráficos vectoriales -->
+      <h3>SVG inline</h3>
+      <svg width="100" height="100">
+        <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+      </svg>
+    </section>
+
+    <!-- SECTION: Tabla -->
+    <section>
+      <h2>Tablas</h2>
+      <table> <!-- table=tabla -->
+        <caption>Tabla de ejemplo</caption> <!-- caption=título de tabla -->
+        <thead> <!-- thead=cabecera de tabla -->
+          <tr> <!-- tr=fila -->
+            <th>Nombre</th> <!-- th=celda de cabecera -->
+            <th>Edad</th>
+            <th>Ciudad</th>
+          </tr>
+        </thead>
+        <tbody> <!-- tbody=cuerpo de tabla -->
+          <tr>
+            <td>Jhonatan</td> <!-- td=celda normal -->
+            <td>25</td>
+            <td>Barranquilla</td>
+          </tr>
+          <tr>
+            <td colspan="2">Celda que ocupa 2 columnas</td> <!-- colspan=expandir columnas -->
+            <td rowspan="2">Celda que ocupa 2 filas</td> <!-- rowspan=expandir filas -->
+          </tr>
+          <tr>
+            <td>Dato 1</td>
+            <td>Dato 2</td>
+          </tr>
+        </tbody>
+        <tfoot> <!-- tfoot=pie de tabla -->
+          <tr>
+            <td colspan="3">Pie de tabla</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <!-- SECTION: Formulario completo -->
+    <section id="contacto">
+      <h2>Formulario Completo</h2>
+      <form action="/enviar" method="POST"> <!-- form=formulario, action=donde envía -->
+        <fieldset> <!-- fieldset=agrupa campos relacionados -->
+          <legend>Datos personales</legend> <!-- legend=título del fieldset -->
+          
+          <label for="nombre">Nombre:</label> <!-- label=etiqueta de input -->
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required> <!-- required=obligatorio -->
+          
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          
+          <label for="pass">Contraseña:</label>
+          <input type="password" id="pass" name="pass" minlength="8">
+          
+          <label for="edad">Edad:</label>
+          <input type="number" id="edad" name="edad" min="18" max="99">
+          
+          <label for="fecha">Fecha:</label>
+          <input type="date" id="fecha" name="fecha">
+          
+          <label for="color">Color favorito:</label>
+          <input type="color" id="color" name="color">
+          
+          <label for="archivo">Subir archivo:</label>
+          <input type="file" id="archivo" name="archivo">
+          
+          <label for="rango">Rango:</label>
+          <input type="range" id="rango" name="rango" min="0" max="100">
+        </fieldset>
+        
+        <fieldset>
+          <legend>Preferencias</legend>
+          
+          <p>Género:</p>
+          <input type="radio" id="masc" name="genero" value="m"> <!-- radio=solo 1 opción -->
+          <label for="masc">Masculino</label>
+          <input type="radio" id="fem" name="genero" value="f">
+          <label for="fem">Femenino</label>
+          
+          <p>Intereses:</p>
+          <input type="checkbox" id="html" name="interes" value="html"> <!-- checkbox=varias opciones -->
+          <label for="html">HTML</label>
+          <input type="checkbox" id="css" name="interes" value="css">
+          <label for="css">CSS</label>
+          
+          <label for="pais">País:</label>
+          <select id="pais" name="pais"> <!-- select=menú desplegable -->
+            <option value="">Selecciona...</option>
+            <optgroup label="América"> <!-- optgroup=agrupa opciones -->
+              <option value="co">Colombia</option>
+              <option value="mx">México</option>
+            </optgroup>
+          </select>
+          
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" rows="4" cols="50"></textarea> <!-- textarea=texto largo -->
+        </fieldset>
+        
+        <button type="submit">Enviar</button> <!-- button=botón -->
+        <button type="reset">Limpiar</button>
+        <button type="button" onclick="alert('Hola')">Click JS</button>
+      </form>
+    </section>
+
+    <!-- DETAILS: Acordeón nativo -->
+    <section>
+      <h2>Details y Summary - Acordeón</h2>
+      <details> <!-- details=acordeón nativo sin JS -->
+        <summary>Click para ver más</summary> <!-- summary=título del acordeón -->
+        <p>Este contenido estaba oculto. No necesita JavaScript.</p>
+      </details>
+    </section>
+
+    <!-- PROGRESS y METER -->
+    <section>
+      <h2>Progress y Meter</h2>
+      <label for="progreso">Progreso de carga:</label>
+      <progress id="progreso" value="70" max="100">70%</progress> <!-- progress=barra progreso -->
+      
+      <label for="bateria">Nivel de batería:</label>
+      <meter id="bateria" value="0.6" min="0" max="1">60%</meter> <!-- meter=medidor -->
+    </section>
+
+  </main>
+
+  <!-- FOOTER: Pie de página -->
+  <footer class="footer-principal">
+    <p>&copy; 2026 Jhonatan. Todos los derechos reservados.</p> <!-- &copy;=© -->
+    <nav>
+      <a href="#inicio">Volver arriba</a> |
+      <a href="/privacidad">Privacidad</a> |
+      <a href="/terminos">Términos</a>
+    </nav>
+  </footer>
+
+  <!-- SCRIPT: JavaScript al final para que cargue más rápido -->
+  <script>
+    // JS inline de ejemplo
+    console.log("Página cargada");
+    // Dibujar en canvas
+    const canvas = document.getElementById('miCanvas');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'blue';
+    ctx.fillRect(10, 10, 100, 50);
+  </script>
+</body>
+</html>
